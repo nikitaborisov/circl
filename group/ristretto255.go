@@ -157,6 +157,15 @@ func (e *ristrettoElement) UnmarshalBinary(data []byte) error {
 	return e.p.UnmarshalBinary(data)
 }
 
+func (e *ristrettoElement) String() string {
+	binary, err := e.MarshalBinary()
+	if err == nil {
+		return fmt.Sprintf("0x%x", binary)
+	} else {
+		return fmt.Sprintf("%v", err)
+	}
+}
+
 func (s *ristrettoScalar) String() string     { return fmt.Sprintf("0x%x", s.s.Bytes()) }
 func (s *ristrettoScalar) SetUint64(n uint64) { s.s.SetUint64(n) }
 

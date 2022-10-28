@@ -41,6 +41,7 @@ type Element interface {
 	encoding.BinaryMarshaler
 	encoding.BinaryUnmarshaler
 	MarshalBinaryCompress() ([]byte, error)
+	String() string
 }
 
 // Scalar represents an integer scalar.
